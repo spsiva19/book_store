@@ -1,0 +1,69 @@
+<html lang="en">
+<head>   
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    {% if message %}
+    <script>
+        alert( '{{message}}'); 
+    </script>
+    {% endif %}
+  
+  </head>
+    <body>
+        <section class="vh-100" style="background-color: #001d53;">
+            <div class="container py-5 h-100">
+              <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                  <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+          
+                      
+        <center>
+            <h2  clas="mb-5" style="color:rgb(1, 1, 82);font-family: 'Times New Roman', Times, serif;">Book Details</h2>
+            <hr class="my-4">
+        
+            <form action="book_post" method="post">
+                {% csrf_token %}
+         
+                <div data-mdb-input-init class="form-outline mb-4">
+                    
+                    <input type="text" class="form-control form-control-lg" name="cover" placeholder="Cover (jpg link)" required />
+                </div>
+                <div data-mdb-input-init class="form-outline mb-4">
+                    
+                    <input type="text" class="form-control form-control-lg" name="name" placeholder="Book Name" required/>
+                </div>
+               
+                <div data-mdb-input-init class="form-outline mb-4">
+                    
+                    <input type="text" class="form-control form-control-lg" name="author" placeholder="Author" required/>
+                </div>
+                <div data-mdb-input-init class="form-outline mb-4">
+                    
+                    <input type="text" class="form-control form-control-lg" name="year" placeholder="Published Year" required/>
+                </div>
+                       
+                <div data-mdb-input-init class="form-outline mb-4">
+                    
+                    <input type="text" class="form-control form-control-lg" name="descrip" placeholder="Description" required>
+
+                    </textarea>
+                </div>
+                <div data-mdb-input-init class="form-outline mb-4">     
+                    <input type="submit" class="form-control form-control-lg btn btn-primary" value="Add Book">
+                </div>
+                <div data-mdb-input-init class="form-outline mb-4">     
+                    <a href='{% url "book:book_retrieve" %}' class="btn btn-primary">Home</a>
+                </div>
+            </div>
+            </div>
+                </div>
+              </div>
+            </section>
+                
+        </form>
+    </center>
+    </body>
+</html>
